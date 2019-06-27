@@ -2,6 +2,7 @@
 class reservation_system:
     
     def manage_rooms(inDate,sublist_number,cost):
+        global check_out_dates
         for x in rooms[sublist_number]:
             if x in check_out_dates:
                 in_date = time.strptime(inDate, "%d-%m-%Y")

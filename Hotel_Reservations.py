@@ -45,27 +45,24 @@ while True:
     check_out = input('Enter check-out date eg.[17-02-2019]: ')
 
     amount_visitors = int(input('Enter amount of people to visit: '))
-    if amount_visitors <= 4:
+    if amount_visitors <= 2:
         reservation_system.manage_rooms(check_in,0,'R100')
-            
-        room_selected = input('Enter room to book: ')
-        reservation_system.confirm_booking()
-        check_out_dates[room_selected] = check_out
-        
+
+    elif amount_visitors <= 4:
+        reservation_system.manage_rooms(check_in,0,'R250')
 
     elif amount_visitors <= 6:
-        reservation_system.manage_rooms(check_in,1,'R300')
+        reservation_system.manage_rooms(check_in,1,'R400')
 
-        room_selected = input('Enter room to book: ')
-        reservation_system.confirm_booking()
-        check_out_dates[room_selected] = check_out
+    elif amount_visitors <= 8:
+        reservation_system.manage_rooms(check_in,1,'R750')
 
     else:
-        reservation_system.manage_rooms(check_in,2,'R700')
+        reservation_system.manage_rooms(check_in,2,'R950')
 
-        room_selected = input('Enter room to book: ')
-        reservation_system.confirm_booking()
-        check_out_dates[room_selected] = check_out
+    room_selected = input('Enter room to book: ')
+    reservation_system.confirm_booking()
+    check_out_dates[room_selected] = check_out
 
     print('\nThank you for booking!\nYour reference number is',random.randint(3000,4000),'\n\nSee you soon')
 
